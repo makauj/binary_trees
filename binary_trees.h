@@ -22,6 +22,43 @@ typedef struct binary_tree_s
 	struct binary_tree_s *right;
 } binary_tree_t;
 
+/**
+ * struct bst_s - binary search tree structure
+ * @n: Integer stored in the node
+ * @parent: pointer to the parent node
+ * @left: pointer to the left child node
+ * @right: Pointer to the right child node
+ */
+typedef struct bst_s
+{
+	int n;
+	struct bst_s *parent;
+	struct bst_s *left;
+	struct bst_s *right;
+} bst_t;
+
+/**
+ * struct queue_node_s - queue node structure
+ * @node: pointer to node
+ * @next: pointer to next node
+ */
+typedef struct queue_node_s
+{
+	binary_tree_t *node;
+	struct queue_node_s *next;
+} queue_node_t;
+
+/**
+ * struct queue_s - queue strucutre
+ * @front: pointer to front node
+ * @rear: pointer to rear node
+ */
+typedef struct queue_s
+{
+	queue_node_t *front;
+	queue_node_t *rear;
+} queue_t;
+
 /* function prototypes */
 void binary_tree_print(const binary_tree_t *);
 binary_tree_t *binary_tree_node(binary_tree_t *parent, int value);
@@ -43,5 +80,14 @@ int binary_tree_is_full(const binary_tree_t *tree);
 int binary_tree_is_perfect(const binary_tree_t *tree);
 binary_tree_t *binary_tree_sibling(binary_tree_t *node);
 binary_tree_t *binary_tree_uncle(binary_tree_t *node);
+binary_tree_t *binary_trees_ancestor(const binary_tree_t *first,
+										const binary_tree_t *second);
+void binary_tree_levelorder(const binary_tree_t *tree, void (*func)(int));
+int binary_tree_is_complete(const binary_tree_t *tree);
+binary_tree_t *binary_tree_rotate_left(binary_tree_t *tree);
+binary_tree_t *binary_tree_rotate_right(binary_tree_t *tree);
+int binary_tree_is_bst(const binary_tree_t *tree);
+bst_t *bst_insert(bst_t **tree, int value);
+
 
 #endif /* _BINARY_TREES_H_ */
