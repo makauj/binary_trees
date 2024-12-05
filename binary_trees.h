@@ -90,4 +90,11 @@ int binary_tree_is_bst(const binary_tree_t *tree);
 bst_t *bst_insert(bst_t **tree, int value);
 
 
+/* Helper functions prototypes */
+queue_t *create_queue(void);
+void enqueue(queue_t *queue, binary_tree_t *node);
+binary_tree_t *dequeue(queue_t *queue);
+int queue_is_empty(queue_t *queue);
+void free_queue(queue_t *queue);
+
 #endif /* _BINARY_TREES_H_ */
